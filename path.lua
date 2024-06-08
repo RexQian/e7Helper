@@ -412,7 +412,7 @@ path.选拔赛排行 = function ()
 
 	-- 切换到选拔赛
 	wait(function ()
-		if findOne('选拔赛排名') then
+		if findOne({'选拔赛排名', '选拔赛排名_2'}) then
 			return 1
 		end
 		stap({723,164})
