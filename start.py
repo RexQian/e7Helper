@@ -11,9 +11,9 @@ import shutil
 from datetime import datetime
 
 # 懒人精灵项目路径
-projectPath = r'E:\todo_files\game_script\E7\test'
+projectPath = r'C:\repo\e7Helper'
 # 懒人精灵项目打包路径
-packagePath = r'F:\懒人精灵\懒人精灵3.8.7.1\懒人精灵3.8.7.1\out\script.lr'
+packagePath = r'C:\repo\sprite\out\script.lr'
 
 # https://gitcode.net/otato001/e7hepler.git
 # https://gitea.com/boluoii/e7Helper.git
@@ -187,9 +187,9 @@ def copyDocument():
 if __name__ == '__main__':
     # 保存文件
     # 复制到懒人精灵
-    # copy()
+    copy()
     # 保存并且上传到git
-    saveAndPush()
+    # saveAndPush()
     # pull远程到本地
     # updateLocal()
     pass

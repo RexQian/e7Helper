@@ -345,6 +345,96 @@ path.刷书签 = function (rest, isSingle)
 	closeHUD()
 end
 
+path.RTA排行 = function ()
+	wait(function ()
+		stap(point.竞技场)
+		ssleep(1)
+		if not findOne('国服主页Rank') then return 1 end
+	end)
+	untilTap('选择RTA')
+
+	local r1, r2
+	wait(function ()
+		stap({386,17})
+		r1, r2 = findOne({'左上5字问号'})
+		if r1 then return 1 end
+	end)
+	log('进入RTA')
+
+	-- 切换到排名
+	wait(function ()
+		if findOne('RTA排名') then
+			return 1
+		end
+		stap({1046,384})
+	end)
+
+	-- 循环执行下拉
+	-- 如果发现查看更多 则点击
+	-- 理论上只需要点击10次 调整为12次
+	local moreClickCount = 0
+	repeat
+		wait(function ()
+			-- 执行下滑
+			sswipe({860,600}, {860,100})
+			ssleep(2)
+			findTap({'RTA排名查看更多', 'RTA排名查看更多_2'})
+			return 1
+		end)
+		moreClickCount = moreClickCount + 1
+	until(moreClickCount > 12)
+
+end
+
+path.选拔赛排行 = function ()
+	wait(function ()
+		stap(point.竞技场)
+		ssleep(1)
+		if not findOne('国服主页Rank') then return 1 end
+	end)
+	untilTap('选择RTA')
+
+	local r1, r2
+	wait(function ()
+		stap({386,17})
+		r1, r2 = findOne({'左上5字问号'})
+		if r1 then return 1 end
+	end)
+	log('进入RTA')
+
+	-- 切换到排名
+	wait(function ()
+		if findOne('RTA排名') then
+			return 1
+		end
+		stap({1046,384})
+	end)
+
+	-- 切换到选拔赛
+	wait(function ()
+		if findOne('选拔赛排名') then
+			return 1
+		end
+		stap({723,164})
+	end)
+
+	-- 循环执行下拉
+	-- 如果发现查看更多 则点击
+	-- 理论上只需要点击10次 调整为12次
+	local moreClickCount = 0
+	repeat
+		wait(function ()
+			-- 执行下滑
+			sswipe({860,600}, {860,100})
+			ssleep(2)
+			findTap({'RTA排名查看更多', 'RTA排名查看更多_2'})
+			return 1
+		end)
+		moreClickCount = moreClickCount + 1
+	until(moreClickCount > 12)
+
+end
+
 path.刷竞技场 = function ()
 	local type = current_task.竞技场次序
 	if type == 0 then
